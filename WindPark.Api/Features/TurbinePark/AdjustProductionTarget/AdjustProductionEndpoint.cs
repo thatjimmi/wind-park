@@ -1,4 +1,5 @@
 using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 using WindPark.Shared;
 
 namespace WindPark.Features.TurbinePark.AdjustProductionTarget;
@@ -10,7 +11,7 @@ public class AdjustProductionEndpoint : IEndpoint
         var group = app.MapGroup("/api/turbines");
 
         group.MapPost("/production-target", async (
-            AdjustProductionCommand adjustProductionCommand,
+            [FromBody] AdjustProductionCommand adjustProductionCommand,
             AdjustProductionTargetHandler handler,
             IValidator<AdjustProductionCommand> validator) =>
         {

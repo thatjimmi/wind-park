@@ -1,3 +1,3 @@
 namespace WindPark.Features.TurbinePark.AdjustProductionTarget;
 
-public record AdjustProductionCommand(int Delta);
+public record AdjustProductionCommand(decimal Delta);

@@ -18,3 +18,5 @@ var app = builder.Build();
 app.MapEndpoints();
 
 app.Run();
+
+public partial class Program { }

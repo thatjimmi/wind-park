@@ -1,4 +1,5 @@
 using FluentValidation;
+using Microsoft.AspNetCore.Mvc;
 using WindPark.Shared;
 
 namespace WindPark.Features.TurbinePark.SetMarketPrice;
@@ -10,7 +11,7 @@ public class SetMarketPriceEndpoint : IEndpoint
         var group = app.MapGroup("/api/turbines");
 
         group.MapPost("/market-price", async (
-            SetMarketPriceCommand setMarketPriceCommand,
+            [FromBody] SetMarketPriceCommand setMarketPriceCommand,
             SetMarketPriceHandler handler,
             IValidator<SetMarketPriceCommand> validator) =>
         {
